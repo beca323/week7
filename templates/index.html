@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>HOLA</title>
+
+</head>
+
+
+<body>
+  <div class="loginPage">
+    <div class="logincard">
+      <div class="login">LOG IN</div>
+      <div class="loginInfo">
+        <form action="/signin" method="POST">
+          <span>ACCOUNT NAME：</span>
+          <input type="text" name="username">
+          <span>PASSWORD：</span>
+          <input type="password" name="pwd">
+          <button class="loginBtn">Log In</button>
+        </form>
+      </div>
+    </div>
+    <div class="signupcard logincard">
+      <div class="login">SIGN UP</div>
+      <div class="loginInfo">
+        <form action="/signup" method="POST">
+          <span>NAME：</span>
+          <input type="text" name="name">
+          <span>USERNAME：</span>
+          <input type=" text" name="username">
+          <span>PASSWORD：</span>
+          <input type="password" name="pwd">
+          <button class="loginBtn signupBtn">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

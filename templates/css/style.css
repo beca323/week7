@@ -1,0 +1,86 @@
+* {
+  color: rgb(112, 95, 18);
+  font-size: 26px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: rgb(112, 95, 18);
+}
+
+.loginPage {
+  background-color: rgb(230, 228, 218);
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.logincard {
+  box-shadow: 2px 2px 8px lightgray;
+  border-radius: 8px;
+  height: 650px;
+  width: 600px;
+  padding: 0 5%;
+  margin: auto;
+  background-color: rgb(245, 245, 240);
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.loginInfo input {
+  width: 100%;
+  padding: 8px 12px;
+}
+
+.loginBtn {
+  float: right;
+  cursor: pointer;
+  margin-top: 40px;
+  padding: 4px 8px;
+}
+
+.welcome {
+  height: 300px;
+  background-color: rgb(114, 106, 71);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome h1 {
+  color: white;
+  font-size: 2rem;
+}
+
+.errormsg {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 60px;
+  color: rgb(185, 51, 51);
+}
+
+.logout {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 16px;
+}
+
+.logout a {
+  color: white;
+}
+
+.logout button {
+  cursor: pointer;
+  padding: 4px 8px;
+}
