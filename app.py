@@ -35,16 +35,18 @@ def signin():
     username = request.form['username']
     pwd = request.form['pwd']
 
-    mycursor.execute('SELECT username,password FROM user')
+    mycursor.execute(
+        'SELECT name,username,password FROM user WHERE username="' + username +
+        '" AND password="' + pwd + '"')
     myresult = mycursor.fetchall()
-    signin = False
-    for x in myresult:
-        if x[0] == username and x[1] == pwd:
-            signin = True
-            session['username'] = username
-            return redirect('/member')
-    if signin == False:
+
+    if myresult == []:
         return redirect('/error')
+    elif myresult[0][1] == username and myresult[0][2] == pwd:
+        name = myresult[0][0]
+        session['name'] = name
+        session['username'] = username
+        return redirect('/member')
 
 
 @app.route('/signout')
@@ -55,9 +57,9 @@ def signout():
 
 @app.route('/member')
 def member():
-    username = session.get('username')
-    if 'username' in session:
-        return render_template('./member.html', name=username)
+    name = session.get('name')
+    if 'name' in session:
+        return render_template('./member.html', name=name)
     else:
         return redirect('/')
 
@@ -83,19 +85,16 @@ def signup():
     username = request.form['username']
     pwd = request.form['pwd']
 
-    mycursor.execute('SELECT username FROM user')
+    mycursor.execute('SELECT username FROM user where username="' + username +
+                     '"')
     myresult = mycursor.fetchall()
-    addAccount = True
-    for x in myresult:
-        if x[0] == username:
-            addAccount = False
-            break
+    # print(myresult)
 
     if name == '' or username == '' or pwd == '':
         message = '不可為空'
         return redirect('/error/?message=' + message)
 
-    if addAccount == False:
+    elif myresult != []:
         message = '帳號已被註冊'
         return redirect('/error/?message=' + message)
 
