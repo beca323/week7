@@ -1,6 +1,6 @@
 * {
   color: rgb(112, 95, 18);
-  font-size: 26px;
+  font-size: 20px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -20,8 +20,8 @@ body {
 .logincard {
   box-shadow: 2px 2px 8px lightgray;
   border-radius: 8px;
-  height: 650px;
-  width: 600px;
+  height: 550px;
+  width: 450px;
   padding: 0 5%;
   margin: auto;
   background-color: rgb(245, 245, 240);
@@ -83,4 +83,20 @@ body {
 .logout button {
   cursor: pointer;
   padding: 4px 8px;
+}
+
+.searchBox {
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  line-height: 2rem;
+}
+
+.searchBox input {
+  padding: 8px 12px;
+}
+
+.searchBox button {
+  padding: 6px 10px;
+  font-size: 0.9rem;
 }

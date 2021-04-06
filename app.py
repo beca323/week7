@@ -1,5 +1,5 @@
 # 載入Flask
-from flask import Flask, redirect, request, render_template, session
+from flask import Flask, redirect, request, render_template, session, jsonify, json
 import mysql.connector
 
 mydb = mysql.connector.connect(host='localhost',
@@ -19,6 +19,7 @@ app = Flask(
 )
 
 app.secret_key = 'jkdkowu48g'
+app.config["JSON_AS_ASCII"] = False
 
 
 # 建立網站首頁的回應方式
@@ -55,7 +56,7 @@ def signout():
     return redirect('/')
 
 
-@app.route('/member')
+@app.route('/member/')
 def member():
     name = session.get('name')
     if 'name' in session:
@@ -104,6 +105,25 @@ def signup():
         mycursor.execute(sql, val)
         mydb.commit()
         return redirect('/')
+
+
+# week7
+
+
+@app.route('/api/users')
+def api():
+    username = request.args.get('username', '')
+    mycursor.execute('SELECT * FROM user WHERE username = "' + username + '"')
+    myresult = mycursor.fetchall()
+    if myresult == []:
+        userfound = None
+    else:
+        userfound = {
+            'id': myresult[0][0],
+            'name': myresult[0][1],
+            'username': myresult[0][2],
+        }
+    return {'data': userfound}
 
 
 app.run(port=3000)

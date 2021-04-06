@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../script.js"></script>
   <title>WELCOME</title>
 </head>
 
@@ -17,6 +18,14 @@
       <button>log out</button>
     </div>
   </form>
+  <div class="searchBox">
+    <div>
+      <div>查詢會員姓名：</div>
+      <input type="text" id="getUsername">
+      <button onclick="searchUsername()">查詢</button>
+      <div id="showUsername"></div>
+    </div>
+  </div>
 
 </body>
 
